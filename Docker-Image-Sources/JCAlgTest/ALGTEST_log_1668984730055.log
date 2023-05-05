@@ -1,0 +1,28 @@
+
+-----------------------------------------------------------------------   
+JCAlgTest 1.8.1 - comprehensive tool for JavaCard smart card testing.
+Visit jcalgtest.org for results from 100+ cards. CRoCS lab 2007-2021.
+Please check if you use the latest version at
+  https://github.com/crocs-muni/JCAlgTest/releases/latest.
+Type 'java -jar jcalgtestclient --help' to display help and available commands.
+-----------------------------------------------------------------------
+
+NOTE: JCAlgTest applet (AlgTest.cap) must be already installed on tested card.
+The results are stored in CSV files. Use JCAlgProcess for HTML conversion.
+
+Running in interactive mode. Run 'java -jar AlgTestJClient.jar -help' to obtain list of supported arguments.
+CHOOSE test you want to run:
+1 -> SUPPORTED ALGORITHMS
+    List all supported JC API algorithms (2-10 minutes)
+2 -> PERFORMANCE TEST
+    Test all JC API methods with 256B data length (1-3 hours)
+3 -> PERFORMANCE VARIABLE DATA
+    Performance test with 16/32/64/128/256/512B data lengths (2-10 hours)
+4 -> HARVEST RSA KEYS
+    Generate RSA keys on card, export to host and store to file (no limit)
+5 -> FINGERPRINT
+    Performance measurement of selected methods for fingeprint (10 minutes)
+6 -> ECC PERFORMANCE
+    Performance measurement of eliptic curve operations (10 minutes)
+
+Test option number: 

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<categories xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="schema.xsd">
+    <!-- Standard curves -->
+    <category>
+        <name>anomalous</name>
+        <directory>anomalous</directory>
+        <desc>These prime field curves have the same order as the field order. Some are from https://dspace.jaist.ac.jp/dspace/bitstream/10119/4464/1/73-61.pdf.</desc>
+    </category>
+    <category>
+        <name>brainpool</name>
+        <directory>brainpool</directory>
+        <desc>ECC Brainpool Standard Curves and Curve Generation v. 1.0  19.10.2005</desc>
+    </category>
+    <category>
+        <name>nist</name>
+        <directory>nist</directory>
+        <desc>RECOMMENDED ELLIPTIC CURVES FOR FEDERAL GOVERNMENT USE  July 1999</desc>
+    </category>
+    <category>
+        <name>secg</name>
+        <directory>secg</directory>
+        <desc>SEC 2: Recommended Elliptic Curve Domain Parameters version 2.0  January 27, 2010</desc>
+    </category>
+    <category>
+        <name>anssi</name>
+        <directory>anssi</directory>
+        <desc>Agence nationale de la sécurité des systèmes d'information: Publication d'un paramétrage de courbe elliptique visant des applications de passeport électronique et de l'administration électronique française. 21 November 2011</desc>
+    </category>
+    <category>
+        <name>GOST</name>
+        <directory>gost</directory>
+        <desc>GOST R 34.10-2001: RFC5832</desc>
+    </category>
+    <category>
+        <name>x962</name>
+        <directory>x962</directory>
+        <desc>ANSI X9.62 example curves.</desc>
+    </category>
+    <category>
+        <name>Barreto-Naehrig</name>
+        <directory>bn</directory>
+        <desc>Barreto-Naehrig curves from: A Family of Implementation-Friendly BN Elliptic Curves - https://eprint.iacr.org/2010/429.pdf.</desc>
+    </category>
+    <category>
+        <name>MNT</name>
+        <directory>mnt</directory>
+        <desc>MNT (Miyaji, Nakabayashi, and Takano) example curves from: New explicit conditions of elliptic curve traces for FR-reduction - https://dspace.jaist.ac.jp/dspace/bitstream/10119/4432/1/73-48.pdf.</desc>
+    </category>
+    <category>
+        <name>other</name>
+        <directory>other</directory>
+        <desc>An assortment of some other curves.</desc>
+    </category>
+
+    <!-- Custom curves -->
+    <category>
+        <name>invalid</name>
+        <directory>invalid</directory>
+        <desc>Invalid curves and points on them for common standard named curves.</desc>
+    </category>
+    <category>
+        <name>twist</name>
+        <directory>twist</directory>
+        <desc>Points on quadratic twists of common standard named curves.</desc>
+    </category>
+    <category>
+        <name>degenerate</name>
+        <directory>degenerate</directory>
+        <desc>Points on degenerate curves for common standard named curves.</desc>
+    </category>
+    <category>
+        <name>cofactor</name>
+        <directory>cofactor</directory>
+        <desc>Curves of order n * p, with p prime and n in {2,4,8,16,32,64,128}. Generator of order p, with points on the subgroup of order n.</desc>
+    </category>
+    <category>
+        <name>composite</name>
+        <directory>composite</directory>
+        <desc>Composite order curves, with points of very small order pre-generated. Also curves with order of a product of two large primes.</desc>
+    </category>
+    <category>
+        <name>wrong</name>
+        <directory>wrong</directory>
+        <desc>Wrong field curves and other wrong parameters. These should definitely give an error when used. Since the "prime" used for the field is not prime, and the field polynomials are also not irreducible. Simply put these parameters don't specify a valid elliptic curve.</desc>
+    </category>
+    <category>
+        <name>test</name>
+        <directory>test</directory>
+        <desc>Test vectors</desc>
+    </category>
+    <category>
+        <name>wycheproof</name>
+        <directory>wycheproof</directory>
+        <desc>Test cases from google Wycheproof project: https://github.com/google/wycheproof</desc>
+    </category>
+	<category>
+        <name>supersingular</name>
+        <directory>supersingular</directory>
+        <desc>Some supersingular curves, over F_p with order equal to p + 1.</desc>
+    </category>
+    <category>
+        <name>misc</name>
+        <directory>misc</directory>
+        <desc>Miscellaneous data.</desc>
+    </category>
+</categories>

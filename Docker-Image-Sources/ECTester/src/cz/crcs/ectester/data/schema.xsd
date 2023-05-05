@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <!-- /<category>/curves.xml -->
+
+    <xs:simpleType name="fieldType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="prime"/>
+            <xs:enumeration value="binary"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="data" abstract="true"/>
+    <xs:element name="file" substitutionGroup="data" type="xs:string"/>
+    <xs:element name="inline" substitutionGroup="data" type="xs:string"/>
+
+    <xs:complexType name="curveType">
+        <xs:all>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="bits" type="xs:positiveInteger"/>
+            <xs:element name="field" type="fieldType"/>
+            <xs:element ref="data" />
+            <xs:element name="desc" type="xs:string" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:element name="curves">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="curve" type="curveType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- /<category>/keys.xml -->
+
+    <xs:complexType name="keyType">
+        <xs:all>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element ref="data" />
+            <xs:element name="curve" type="xs:string"/>
+            <xs:element name="desc" type="xs:string" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:element name="keys">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="keypair" type="keyType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="privkey" type="keyType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="pubkey" type="keyType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- /<category>/results.xml -->
+
+    <xs:simpleType name="kaType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DH"/>
+            <xs:enumeration value="DHC"/>
+            <xs:enumeration value="DH_PLAIN"/>
+            <xs:enumeration value="DHC_PLAIN"/>
+            <xs:enumeration value="PACE_GM"/>
+            <xs:enumeration value="DH_PLAIN_XY"/>
+            <xs:enumeration value="ANY"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="kaResultType">
+        <xs:all>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="ka" type="kaType"/>
+            <xs:element ref="data" />
+            <xs:element name="curve" type="xs:string"/>
+            <xs:element name="onekey" type="xs:string"/>
+            <xs:element name="otherkey" type="xs:string"/>
+            <xs:element name="desc" type="xs:string" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:simpleType name="sigType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SHA1"/>
+            <xs:enumeration value="SHA224"/>
+            <xs:enumeration value="SHA256"/>
+            <xs:enumeration value="SHA384"/>
+            <xs:enumeration value="SHA512"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="sigResultType">
+        <xs:all>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="sig" type="sigType"/>
+            <xs:element ref="data"/>
+            <xs:element name="raw" type="xs:string" minOccurs="0"/>
+            <xs:element name="curve" type="xs:string"/>
+            <xs:element name="signkey" type="xs:string"/>
+            <xs:element name="verifykey" type="xs:string"/>
+            <xs:element name="desc" type="xs:string" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:element name="results">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="kaResult" type="kaResultType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="sigResult" type="sigResultType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- /categories.xml -->
+
+    <xs:complexType name="categoryType">
+        <xs:all>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="directory" type="xs:string"/>
+            <xs:element name="desc" minOccurs="0" type="xs:string"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:element name="categories">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="category" type="categoryType" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

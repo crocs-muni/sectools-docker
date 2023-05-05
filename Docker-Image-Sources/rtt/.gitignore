@@ -1,0 +1,8 @@
+*.pri
+*.pro
+*.user*
+*.o
+randomness-testing-toolkit
+build/
+cmake-build-*
+.idea
